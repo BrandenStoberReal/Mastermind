@@ -20,10 +20,13 @@ def CheckNumber(Guess, Index):
         return false
 
 def CheckExistence(Number):
-    if Number in Passcode:
-        return true
-    else:
-        return false
+    for i in range(len(Passcode)):
+        if (Passcode[i] < CurrentNum):
+            continue
+        else:
+            if Number == Passcode[i]:
+                return true
+    return false
 
 def GeneratePasscode(Length):
     for i in range(Length):
@@ -38,6 +41,9 @@ print("Welcome to mastermind! I have generated a random 4-digit code, think you 
 while true:
     UserGuess = input("Please guess a number: ")
     Guesses = Guesses + 1
+    if (Guesses > 10):
+        print("You ran out of guesses! The code was " + (''.join(str(x) for x in Passcode)) + "! It took you " + str(Guesses) + " tries!")
+        break
     if CheckNumber(int(UserGuess), CurrentNum):
         print("Thats correct! Good job!")
         GuessStorage.append(int(UserGuess))
