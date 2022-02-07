@@ -25,7 +25,7 @@ def CheckNumber(Guess, Index):
         return false
 
 def CheckExistence(Number):
-    for i in range(len(Passcode)):
+    for i in range(len(Passcode)): # This is generally considered "inefficient", but it gets the job done well enough
         if (Passcode[i] < CurrentNum):
             continue
         else:
