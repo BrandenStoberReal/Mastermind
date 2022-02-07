@@ -38,9 +38,6 @@ def GeneratePasscode(Length):
         Passcode.append(secrets.randbelow(9)) # Uses python encryption library because why not?
         random.shuffle(Passcode) # Shuffle after every iteration
 
-    for i in range(len(Passcode)):
-        random.shuffle(Passcode) # Maybe a bit more for extra randomness...
-
 GeneratePasscode(LengthOfGame) # Generate the starting passcode
 print("Welcome to mastermind! I have generated a random " + str(LengthOfGame) + "-digit code, think you can guess it? You have " + str(AllowedGuesses) + " tries, good luck!")
 
