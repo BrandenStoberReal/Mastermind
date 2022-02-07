@@ -2,15 +2,20 @@ import os
 import random
 import math
 import secrets
+#Mastermind in Python 3.10
 
-#Mastermind in Python
+
+#Config
+LengthOfGame = 4 # Allows dynamics
+AllowedGuesses = 10
+
+#Internal Vars
 true = True # Did this because almost every other language is lowercase and its annoying to write
 false = False
 Passcode = []
 Guesses = 0
 CurrentNum = 0;
 GuessStorage = []
-LengthOfGame = 4 # Allows dynamics
 
 #Functions
 def CheckNumber(Guess, Index):
@@ -37,11 +42,13 @@ def GeneratePasscode(Length):
         random.shuffle(Passcode) # Maybe a bit more for extra randomness...
 
 GeneratePasscode(LengthOfGame) # Generate the starting passcode
-print("Welcome to mastermind! I have generated a random 4-digit code, think you can guess it? You have 10 tries, good luck!")
+print("Welcome to mastermind! I have generated a random " + str(LengthOfGame) + "-digit code, think you can guess it? You have " + str(AllowedGuesses) + " tries, good luck!")
+
+# Main Loop
 while true:
     UserGuess = input("Please guess a number: ")
     Guesses = Guesses + 1
-    if (Guesses > 10):
+    if (Guesses > AllowedGuesses):
         print("You ran out of guesses! The code was " + (''.join(str(x) for x in Passcode)) + "! It took you " + str(Guesses) + " tries!")
         break
     if CheckNumber(int(UserGuess), CurrentNum):
