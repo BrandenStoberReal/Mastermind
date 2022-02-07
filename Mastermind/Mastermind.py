@@ -43,7 +43,7 @@ print("Welcome to mastermind! I have generated a random " + str(LengthOfGame) + 
 
 # Main Loop
 while true:
-    UserGuess = input("Please guess a number: ")
+    UserGuess = input("Please guess digit #" + str(CurrentNum + 1) + ": ")
     if (Guesses == AllowedGuesses):
         print("You ran out of guesses! The code was " + (''.join(str(x) for x in Passcode)) + "! It took you " + str(Guesses) + " tries!")
         break
